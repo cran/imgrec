@@ -1,5 +1,5 @@
 
-#' @title ave annotation data as JSON
+#' @title save annotation data as JSON
 #' @name save_json
 #' @description
 #' Writes raw JSON data as returned by the Google Vision API to a UTF-8 encoded local file.
@@ -30,7 +30,7 @@ save_json <- function(annotations, file) {
   # open file connection
   conn <- file(file, open = "w", encoding = "UTF-8")
   # writing requests to file
-  requests <- unlist(annotations$requests)
+  requests <- unlist(annotations$data)
   to_write <- c('[', paste( requests,  collapse = ", ", sep = ""), ']')
   write(to_write, conn)
   # close file connection
